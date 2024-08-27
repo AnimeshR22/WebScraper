@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web Scraper</h1>
+        <input type="text" id="urlInput" placeholder="Enter URL to scrape">
+        <button id="scrapeButton">Scrape Data</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('scrapeButton').addEventListener('click', () => {
+            const url = document.getElementById('urlInput').value;
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Scraping in progress...</p>';
+
+            fetch('/scrape', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: url }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    resultsDiv.innerHTML = '<h2>Scraped Data:</h2>';
+                    data.data.forEach(item => {
+                        resultsDiv.innerHTML += `<p>${item}</p>`;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultsDiv.innerHTML = '<p>Error occurred while scraping.</p>';
+                });
+        });
+    </script>
+</body>
+</html>

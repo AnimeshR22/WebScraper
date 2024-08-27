@@ -13,7 +13,7 @@ async def main():
         page = await browser.newPage()
         
         # Set the URL to scrape
-        url = 'https://www.google.com/search?sca_esv=563100770&rlz=1C1CHBF_enIN1052IN1052&sxsrf=AB5stBg7leiLM4uCqh6E9e2fFkWv6tkIlQ:1694014641082&q=idli&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjyv7OnqJaBAxURSGwGHZR4C3sQ0pQJegQIChAB&biw=1920&bih=955'  # Replace with your desired URL
+        url = 'https://www.google.co.in/search?sca_esv=d71f265c45fd02a5&sca_upv=1&sxsrf=ADLYWIIknZLex4lhtewydM90vNgx1jwW8g:1724699900521&q=banana+image&udm=2&fbs=AEQNm0CvspUPonaF8UH5s_LBD3JPX4RSeMPt9v8oIaeGMh2T2D1DyqhnuPxLgMgOaYPYX7OtOF4SxbM4YPsyWUMdeXRPnkQc3caC_NEMjyGZlBqX7YDVSc-lk14rE2h7j-ln6ORWjT4WxqVC6FS82YpEwEqqnkJJKpHqKGrk5ZhbNsOcE3i19GRoFANVfwr_gZS3oWcL17KMyupN4i8_p5OTUvqC1CSN_g&sa=X&ved=2ahUKEwi3rqjnr5OIAxW2s1YBHRW3O24QtKgLegQIFhAB&biw=1865&bih=924&dpr=1'  # Replace with your desired URL
         await page.goto(url, {'waitUntil': 'domcontentloaded'})
 
         # Extract text from the page
@@ -40,7 +40,7 @@ async def main():
 
 async def download_images(page):
     # Create a directory for image downloads
-    image_directory = 'images'
+    image_directory = 'test_images'
     os.makedirs(image_directory, exist_ok=True)
 
     while True:
