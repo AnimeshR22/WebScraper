@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+requests
+beautifulsoup4
+selenium
+pyppeteer
+playwright
+zenrows
+scrapy
+scrapy-splash
+six
+python-dotenv
+aiohttp
+asyncio
+lxml
+pandas
+pillow
